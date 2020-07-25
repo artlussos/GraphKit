@@ -28,6 +28,6 @@
 @interface NSMutableArray (MK_Stack)
 
 - (void)mk_pushObject:(id)object;
-- (id)mk_pullObject;
+- (id)  mk_pullObject;
 
 @end

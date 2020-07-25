@@ -30,7 +30,7 @@
 + (UIColor *)gk_turquoiseColor;
 + (UIColor *)gk_greenSeaColor;
 
-+ (UIColor *)gk_emerlandColor;
++ (UIColor *)gk_emeraldColor;
 + (UIColor *)gk_nephritisColor;
 
 + (UIColor *)gk_peterRiverColor;

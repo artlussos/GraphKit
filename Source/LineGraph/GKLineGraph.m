@@ -74,14 +74,18 @@ static CGFloat kAxisMargin = 50.0;
 
 - (void)draw {
     NSAssert(self.dataSource, @"GKLineGraph : No data source is assgined.");
-    
-    if ([self _hasTitleLabels]) [self _removeTitleLabels];
+
+    if ([self _hasTitleLabels]) {
+        [self _removeTitleLabels];
+    }
     [self _constructTitleLabels];
     [self _positionTitleLabels];
 
-    if ([self _hasValueLabels]) [self _removeValueLabels];
+    if ([self _hasValueLabels]) {
+        [self _removeValueLabels];
+    }
     [self _constructValueLabels];
-    
+
     [self _drawLines];
 }
 
@@ -94,18 +98,18 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (void)_constructTitleLabels {
-    
+
     NSInteger count = [[self.dataSource valuesForLineAtIndex:0] count];
     id items = [NSMutableArray arrayWithCapacity:count];
     for (NSInteger idx = 0; idx < count; idx++) {
-        
+
         CGRect frame = CGRectMake(0, 0, kDefaultLabelWidth, kDefaultLabelHeight);
         UILabel *item = [[UILabel alloc] initWithFrame:frame];
         item.textAlignment = NSTextAlignmentCenter;
         item.font = [UIFont boldSystemFontOfSize:12];
         item.textColor = [UIColor lightGrayColor];
         item.text = [self.dataSource titleForLineAtIndex:idx];
-        
+
         [items addObject:item];
     }
     self.titleLabels = items;
@@ -113,30 +117,30 @@ static CGFloat kAxisMargin = 50.0;
 
 - (void)_removeTitleLabels {
     [self.titleLabels mk_each:^(id item) {
-        [item removeFromSuperview];
-    }];
+         [item removeFromSuperview];
+     }];
     self.titleLabels = nil;
 }
 
 - (void)_positionTitleLabels {
-    
+
     __block NSInteger idx = 0;
     id values = [self.dataSource valuesForLineAtIndex:0];
     [values mk_each:^(id value) {
-        
-        CGFloat labelWidth = kDefaultLabelWidth;
-        CGFloat labelHeight = kDefaultLabelHeight;
-        CGFloat startX = [self _pointXForIndex:idx] - (labelWidth / 2);
-        CGFloat startY = (self.height - labelHeight);
-        
-        UILabel *label = [self.titleLabels objectAtIndex:idx];
-        label.x = startX;
-        label.y = startY;
-        
-        [self addSubview:label];
 
-        idx++;
-    }];
+         CGFloat labelWidth = kDefaultLabelWidth;
+         CGFloat labelHeight = kDefaultLabelHeight;
+         CGFloat startX = [self _pointXForIndex:idx] - (labelWidth / 2);
+         CGFloat startY = (self.height - labelHeight);
+
+         UILabel *label = [self.titleLabels objectAtIndex:idx];
+         label.x = startX;
+         label.y = startY;
+
+         [self addSubview:label];
+
+         idx++;
+     }];
 }
 
 - (CGFloat)_pointXForIndex:(NSInteger)index {
@@ -150,24 +154,24 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (void)_constructValueLabels {
-    
+
     NSInteger count = self.valueLabelCount;
     id items = [NSMutableArray arrayWithCapacity:count];
-    
+
     for (NSInteger idx = 0; idx < count; idx++) {
-        
+
         CGRect frame = CGRectMake(0, 0, kDefaultLabelWidth, kDefaultLabelHeight);
         UILabel *item = [[UILabel alloc] initWithFrame:frame];
         item.textAlignment = NSTextAlignmentRight;
         item.font = [UIFont boldSystemFontOfSize:12];
         item.textColor = [UIColor lightGrayColor];
-    
+
         CGFloat value = [self _minValue] + (idx * [self _stepValueLabelY]);
         item.centerY = [self _positionYForLineValue:value];
-        
+
         item.text = [@(ceil(value)) stringValue];
 //        item.text = [@(value) stringValue];
-        
+
         [items addObject:item];
         [self addSubview:item];
     }
@@ -184,7 +188,9 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (CGFloat)_minValue {
-    if (self.startFromZero) return 0;
+    if (self.startFromZero) {
+        return 0;
+    }
     id values = [self _allValues];
     return [[values mk_min] floatValue];
 }
@@ -201,8 +207,8 @@ static CGFloat kAxisMargin = 50.0;
 
 - (void)_removeValueLabels {
     [self.valueLabels mk_each:^(id item) {
-        [item removeFromSuperview];
-    }];
+         [item removeFromSuperview];
+     }];
     self.valueLabels = nil;
 }
 
@@ -221,17 +227,17 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (void)_drawLineAtIndex:(NSInteger)index {
-    
+
     // http://stackoverflow.com/questions/19599266/invalid-context-0x0-under-ios-7-0-and-system-degradation
     UIGraphicsBeginImageContext(self.frame.size);
-    
+
     UIBezierPath *path = [self _bezierPathWith:0];
     CAShapeLayer *layer = [self _layerWithPath:path];
-    
+
     layer.strokeColor = [[self.dataSource colorForLineAtIndex:index] CGColor];
-    
+
     [self.layer addSublayer:layer];
-    
+
     NSInteger idx = 0;
     id values = [self.dataSource valuesForLineAtIndex:index];
     for (id item in values) {
@@ -239,15 +245,17 @@ static CGFloat kAxisMargin = 50.0;
         CGFloat x = [self _pointXForIndex:idx];
         CGFloat y = [self _positionYForLineValue:[item floatValue]];
         CGPoint point = CGPointMake(x, y);
-        
-        if (idx != 0) [path addLineToPoint:point];
+
+        if (idx != 0) {
+            [path addLineToPoint:point];
+        }
         [path moveToPoint:point];
-        
+
         idx++;
     }
-    
+
     layer.path = path.CGPath;
-    
+
     if (self.animated) {
         CABasicAnimation *animation = [self _animationWithKeyPath:@"strokeEnd"];
         if ([self.dataSource respondsToSelector:@selector(animationDurationForLineAtIndex:)]) {
@@ -255,7 +263,7 @@ static CGFloat kAxisMargin = 50.0;
         }
         [layer addAnimation:animation forKey:@"strokeEndAnimation"];
     }
-    
+
     UIGraphicsEndImageContext();
 }
 
@@ -279,7 +287,7 @@ static CGFloat kAxisMargin = 50.0;
     CAShapeLayer *item = [CAShapeLayer layer];
     item.fillColor = [[UIColor blackColor] CGColor];
     item.lineCap = kCALineCapRound;
-    item.lineJoin  = kCALineJoinRound;
+    item.lineJoin = kCALineJoinRound;
     item.lineWidth = self.lineWidth;
 //    item.strokeColor = [self.foregroundColor CGColor];
     item.strokeColor = [[UIColor redColor] CGColor];

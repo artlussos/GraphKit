@@ -32,8 +32,10 @@
 }
 
 - (id)mk_dequeueObject {
-    if ([self count] == 0) return nil;
-    
+    if ([self count] == 0) {
+        return nil;
+    }
+
     id firstObject = [self objectAtIndex:0];
     [self removeObjectAtIndex:0];
     return firstObject;

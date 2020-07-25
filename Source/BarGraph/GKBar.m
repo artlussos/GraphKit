@@ -86,25 +86,35 @@ static CFTimeInterval kDefaultAnimationDuration = 1.0;
 }
 
 - (void)setPercentage:(CGFloat)percentage {
-    if (percentage == _percentage) return;
-    if (percentage > 100) percentage = 100;
-    if (percentage < 0) percentage = 0;
-    if (self.animationInProgress) return;
-    
+    if (percentage == _percentage) {
+        return;
+    }
+    if (percentage > 100) {
+        percentage = 100;
+    }
+    if (percentage < 0) {
+        percentage = 0;
+    }
+    if (self.animationInProgress) {
+        return;
+    }
+
     [self _progressBarTo:percentage];
     _percentage = percentage;
 }
 
 - (void)_progressBarTo:(CGFloat)value {
-    
+
     CGFloat converted = (value / 100);
     UIBezierPath *path = [self _bezierPathWith:converted];
-    
+
     CAShapeLayer *layer = [self _layerWithPath:path];
-    if (_percentage > value) layer.strokeColor = [self.backgroundColor CGColor];
-    
+    if (_percentage > value) {
+        layer.strokeColor = [self.backgroundColor CGColor];
+    }
+
     [self.layer addSublayer:layer];
-    
+
     if (self.animated) {
         id animation = [self _animationWithKeyPath:@"strokeEnd"];
         [layer addAnimation:animation forKey:@"strokeEndAnimation"];
@@ -117,7 +127,7 @@ static CFTimeInterval kDefaultAnimationDuration = 1.0;
     CGFloat startY = (self.frame.size.height * (1 - (_percentage / 100)));
     CGFloat endY = (self.frame.size.height * (1 - value));
     [path moveToPoint:CGPointMake(startX, startY)];
-	[path addLineToPoint:CGPointMake(startX, endY)];
+    [path addLineToPoint:CGPointMake(startX, endY)];
     return path;
 }
 
@@ -164,12 +174,12 @@ static CFTimeInterval kDefaultAnimationDuration = 1.0;
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         for (CAShapeLayer *item in self.layer.sublayers) {
-                             item.strokeColor = [[UIColor clearColor] CGColor];
-                         }
-                     } completion:^(BOOL finished) {
-                         self.layer.sublayers = nil;
-                     }];
+         for (CAShapeLayer *item in self.layer.sublayers) {
+             item.strokeColor = [[UIColor clearColor] CGColor];
+         }
+     } completion:^(BOOL finished) {
+         self.layer.sublayers = nil;
+     }];
     self.percentage = 0;
 }
 

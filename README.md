@@ -4,9 +4,7 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/michalkonturek/GraphKit/blob/master/LICENSE)
 [![CocoaPods](https://img.shields.io/cocoapods/v/GraphKit.svg?style=flat)](https://github.com/michalkonturek/GraphKit)
 
-
-A lightweight library of animated charts for iOS. 
-
+A lightweight library of animated charts for iOS.
 
 ## License
 
@@ -14,7 +12,6 @@ Source code of this project is available under the standard MIT license. Please 
 
 [PODS]:http://cocoapods.org/
 [LICENSE]:https://github.com/michalkonturek/GraphKit/blob/master/LICENSE
-
 
 ## Usage
 
@@ -31,7 +28,7 @@ CGRect frame = CGRectMake(0, 40, 320, 200);
 self.graphView = [[GKBarGraph alloc] initWithFrame:frame];
 ```
 
-then set `GKGraphViewDataSource` 
+then set `GKGraphViewDataSource`
 
 ```objc
 self.graphView.dataSource = self;
@@ -43,11 +40,9 @@ and call `draw` method.
 [self.graphView draw];
 ```
 
-
 Please see [example][BAR].
 
 [BAR]:https://github.com/michalkonturek/GraphKit/blob/master/GraphKit/Example/ExampleBarGraphVC.m
-
 
 #### `GKBarGraphDataSource` Protocol
 
@@ -62,7 +57,6 @@ Please see [example][BAR].
 - (CFTimeInterval)animationDurationForBarAtIndex:(NSInteger)index;
 - (NSString *)titleForBarAtIndex:(NSInteger)index;
 ```
-
 
 ### Line Graph
 
@@ -81,7 +75,6 @@ self.graph.lineWidth = 3.0;
 Please see [example][LINE].
 
 [LINE]:https://github.com/michalkonturek/GraphKit/blob/master/GraphKit/Example/ExampleLineGraph.m
-
 
 #### `GKLineGraphDataSource` Protocol
 
@@ -103,4 +96,3 @@ Please see [example][LINE].
 3. Commit your changes (`git commit -am 'Added new-feature'`).
 4. Push to the branch (`git push origin new-feature`).
 5. Create new Pull Request.
-

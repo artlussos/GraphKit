@@ -37,7 +37,6 @@
     self.frame = newFrame;
 }
 
-
 #pragma mark Frame Origin
 
 - (CGFloat)x
@@ -64,7 +63,6 @@
     self.frame = newFrame;
 }
 
-
 #pragma mark Frame Size
 
 - (CGFloat)height
@@ -90,7 +88,6 @@
     newFrame.size.width = newWidth;
     self.frame = newFrame;
 }
-
 
 #pragma mark Frame Borders
 
@@ -134,7 +131,6 @@
     self.y = bottom - self.height;
 }
 
-
 #pragma mark Center Point
 
 #if !IS_IOS_DEVICE
@@ -148,6 +144,7 @@
     self.left = newCenter.x - self.middleX;
     self.top = newCenter.y - self.middleY;
 }
+
 #endif
 
 - (CGFloat)centerX
@@ -169,7 +166,6 @@
 {
     self.center = CGPointMake(self.center.x, newCenterY);
 }
-
 
 #pragma mark Middle Point
 

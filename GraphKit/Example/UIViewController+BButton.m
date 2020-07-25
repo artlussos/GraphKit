@@ -8,17 +8,17 @@
 
 #import "UIViewController+BButton.h"
 
-#import <MKFoundationKit/NSArray+MK.h>
 #import <BButton/BButton.h>
+#import <MKFoundationKit/NSArray+MK.h>
 
 @implementation UIViewController (BButton)
 
 - (void)setupButtons {
-    [[self.view.subviews mk_select:^BOOL(id item) {
-        return [item isMemberOfClass:[BButton class]];
-    }] mk_each:^(BButton *item) {
-        [item setType:BButtonTypePrimary];
-    }];
+    [[self.view.subviews mk_select:^BOOL (id item) {
+          return [item isMemberOfClass:[BButton class]];
+      }] mk_each:^(BButton *item) {
+         [item setType:BButtonTypePrimary];
+     }];
 }
 
 @end

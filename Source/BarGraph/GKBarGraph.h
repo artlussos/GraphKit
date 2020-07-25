@@ -49,7 +49,7 @@
 
 @protocol GKBarGraphDataSource <NSObject>
 
-- (NSInteger)numberOfBars;
+- (NSInteger) numberOfBars;
 - (NSNumber *)valueForBarAtIndex:(NSInteger)index;
 
 @optional

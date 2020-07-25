@@ -23,14 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+
     [self setupButtons];
-    
+
     self.view.backgroundColor = [UIColor gk_cloudsColor];
 
     self.bar.animationDuration = 0.4;
     self.bar.percentage = 40;
-    
+
     self.green = YES;
 }
 
@@ -49,7 +49,7 @@
 
 - (IBAction)onButtonChange:(id)sender {
     self.green = !self.green;
-    self.bar.foregroundColor = (self.green) ? [UIColor gk_turquoiseColor] : [UIColor gk_amethystColor];;
+    self.bar.foregroundColor = (self.green) ? [UIColor gk_turquoiseColor] : [UIColor gk_amethystColor];
 }
 
 - (IBAction)onButtonReset:(id)sender {

@@ -19,14 +19,14 @@
 //  http://hexedbits.com
 //
 
-#import <UIKit/UIKit.h>
-#import "UIColor+BButton.h"
 #import "NSString+FontAwesome.h"
+#import "UIColor+BButton.h"
+#import <UIKit/UIKit.h>
 
 /**
  *  A constant describing the button style.
  */
-typedef NS_ENUM(NSUInteger, BButtonStyle) {
+typedef NS_ENUM (NSUInteger, BButtonStyle) {
     /**
      *  Styles the button like bootstrap version 2.x.x.
      */
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, BButtonStyle) {
 /**
  *  A constant describing the button type. This sets the button color.
  */
-typedef NS_ENUM(NSUInteger, BButtonType) {
+typedef NS_ENUM (NSUInteger, BButtonType) {
     BButtonTypeDefault,
     BButtonTypePrimary,
     BButtonTypeInfo,
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSUInteger, BButtonType) {
 
 
 /**
- *  An instanace of `BButton` is a subclass of `UIButton` that is styled like the Twitter Bootstrap buttons and is drawn entirely with `CoreGraphics`.
+ *  An instance of `BButton` is a subclass of `UIButton` that is styled like the Twitter Bootstrap buttons and is drawn entirely with `CoreGraphics`.
  */
 @interface BButton : UIButton <UIAppearance>
 
@@ -182,7 +182,7 @@ typedef NS_ENUM(NSUInteger, BButtonType) {
  *  Adds the specified icon to the buttons's `titleLabel`, and sets `titleLabel.font` to `FontAwesome.ttf`.
  *
  *  @param icon   A constant describing the FontAwesome Icon. @see FAIcon.
- *  @param before A boolean value indicating if the icon should be placed before or after any existing text. Pass `YES` to place the icon before the text, and `NO` to place the icon after the text. 
+ *  @param before A boolean value indicating if the icon should be placed before or after any existing text. Pass `YES` to place the icon before the text, and `NO` to place the icon after the text.
  *
  *  @warning A single space is inserted between the added icon and existing text.
  */

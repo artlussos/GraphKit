@@ -56,6 +56,6 @@
 - (UIColor *)bb_desaturatedColorToPercentSaturation:(CGFloat)percent;
 - (UIColor *)bb_lightenColorWithValue:(CGFloat)value;
 - (UIColor *)bb_darkenColorWithValue:(CGFloat)value;
-- (BOOL)bb_isLightColor;
+- (BOOL)     bb_isLightColor;
 
 @end

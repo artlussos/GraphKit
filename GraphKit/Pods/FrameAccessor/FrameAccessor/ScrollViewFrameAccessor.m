@@ -33,7 +33,6 @@
     self.contentOffset = CGPointMake(self.contentOffsetX, newContentOffsetY);
 }
 
-
 #pragma mark Content Size
 
 - (CGFloat)contentSizeWidth
@@ -55,7 +54,6 @@
 {
     self.contentSize = CGSizeMake(self.contentSizeWidth, newContentSizeHeight);
 }
-
 
 #pragma mark Content Inset
 

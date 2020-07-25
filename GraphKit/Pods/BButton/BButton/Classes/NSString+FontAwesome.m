@@ -34,7 +34,7 @@
 
 #import "NSString+FontAwesome.h"
 
-NSString * const kFontAwesomeFont = @"FontAwesome";
+NSString *const kFontAwesomeFont = @"FontAwesome";
 
 @implementation NSString (FontAwesome)
 

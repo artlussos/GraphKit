@@ -37,12 +37,12 @@
 /**
  *  A string constant for the Font Awesome font family name.
  */
-extern NSString * const kFontAwesomeFont;
+extern NSString *const kFontAwesomeFont;
 
 /**
  *  A constant describing the available Font Awesome Icons.
  */
-typedef NS_ENUM(NSUInteger, FAIcon) {
+typedef NS_ENUM (NSUInteger, FAIcon) {
     FAIconGlass,
     FAIconMusic,
     FAIconSearch,

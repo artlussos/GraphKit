@@ -28,7 +28,9 @@
 @implementation NSMutableArray (MK_Misc)
 
 - (void)mk_safeAddObject:(id)object {
-    if (!object) return;
+    if (!object) {
+        return;
+    }
     [self addObject:object];
 }
 

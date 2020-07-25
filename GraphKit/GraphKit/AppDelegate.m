@@ -19,19 +19,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+
     [[UINavigationBar appearance] setBarTintColor:[UIColor gk_greenSeaColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor gk_cloudsColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor gk_cloudsColor]}];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    
+
+
     [[BButton appearance] setButtonCornerRadius:@2];
-    
+
     id vc = [[ExampleListVC alloc] initWithNibName:@"ExampleListVC" bundle:nil];
     id nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
-    
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -45,7 +45,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

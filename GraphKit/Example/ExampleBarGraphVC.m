@@ -21,23 +21,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+
     [self setupButtons];
-    
+
     self.view.backgroundColor = [UIColor gk_cloudsColor];
-    
+
     self.data = @[@65, @10, @40, @90, @50, @75];
     self.labels = @[@"US", @"UK", @"DE", @"PL", @"CN", @"JP"];
-    
+
 //    self.graphView.barWidth = 22;
 //    self.graphView.barHeight = 140;
 //    self.graphView.marginBar = 25;
 //    self.graphView.animationDuration = 2.0;
-    
+
     self.graphView.dataSource = self;
-    
+
     [self.graphView draw];
-    
+
     self.green = YES;
 }
 
@@ -58,7 +58,6 @@
     [self.graphView reset];
 }
 
-
 #pragma mark - GKBarGraphDataSource
 
 - (NSInteger)numberOfBars {
@@ -74,9 +73,9 @@
                   [UIColor gk_peterRiverColor],
                   [UIColor gk_alizarinColor],
                   [UIColor gk_amethystColor],
-                  [UIColor gk_emerlandColor],
+                  [UIColor gk_emeraldColor],
                   [UIColor gk_sunflowerColor]
-                  ];
+    ];
     return [colors objectAtIndex:index];
 }
 

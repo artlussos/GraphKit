@@ -6,21 +6,21 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/michalkonturek/GraphKit"
   s.license      = 'MIT'
 
-  s.author       = { 
-    "Michal Konturek" => "michal.konturek@gmail.com" 
+  s.author       = {
+    "Michal Konturek" => "michal.konturek@gmail.com"
   }
 
   s.ios.deployment_target = '7.0'
-  
+
   s.social_media_url = 'https://twitter.com/michalkonturek'
-  s.source       = { 
-    :git => "https://github.com/michalkonturek/GraphKit.git", 
+  s.source       = {
+    :git => "https://github.com/michalkonturek/GraphKit.git",
     :tag => s.version.to_s
   }
 
   s.source_files = 'Source/**/*.{h,m}'
   s.requires_arc = true
 
-  s.dependency 'FrameAccessor', '~> 1.3.2'
-  s.dependency 'MKFoundationKit/NSArray', '~> 1.2.2'
+  s.dependency 'FrameAccessor', :git => 'https://github.com/artlussos/FrameAccessor', :branch => 'fstanding_usage'
+  s.dependency 'MKFoundationKit/NSArray', :git => 'https://github.com/artlussos/MKFoundationKit', :branch => 'fstanding_usage'
 end

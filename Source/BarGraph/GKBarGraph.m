@@ -135,7 +135,7 @@ static CGFloat kDefaultAnimationDuration = 2.0;
 
     __block CGFloat x = [self _barStartX];
     [self.bars mk_each:^(GKBar *item) {
-         item.frame = CGRectMake(x, y, _barWidth, _barHeight);
+         item.frame = CGRectMake(x, y, self.barWidth, self.barHeight);
          [self addSubview:item];
          x += [self _barSpace];
      }];

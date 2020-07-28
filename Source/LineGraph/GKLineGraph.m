@@ -73,7 +73,7 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (void)draw {
-    NSAssert(self.dataSource, @"GKLineGraph : No data source is assgined.");
+    NSAssert(self.dataSource, @"GKLineGraph : No data source is assigned.");
 
     if ([self _hasTitleLabels]) {
         [self _removeTitleLabels];
